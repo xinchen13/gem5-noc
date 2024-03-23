@@ -42,10 +42,10 @@ For each data point, add the `average_packet_latency` value in [uniform_random.t
 
 run the script: [lab1_uniform_random.sh](./scripts/lab1_uniform_random.sh), get the result
 
-## 2.Shuffle Traffic
+## Shuffle Traffic
 run shuffle traffic at increasing injection rates through a 8x8 Mesh NoC for 1000000 cycles, and plot the latency-throughput curve. change `--synthetic` to shuffle, run [lab1_shuffle.sh](./scripts/lab1_shuffle.sh) create [shuffle.txt](./results/shuffle.txt)
 
-## 3.Analysis
+## Analysis
 draw pictures with [draw.py](./scripts/draw.py)
 
 #### Which of the two traffic patterns has a lower low-load latency: shuffle
