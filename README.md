@@ -1,4 +1,4 @@
-# NoC simulation in gem5(a simple tutorial for Garnet)
+# NoC simulation with gem5(a simple tutorial for Garnet)
 Run and modify Garnet as a stand-alone in gem5. Garnet models the interconnection network in gem5. It is cyclic accurate, implements the micro-architecture of on-chip router, and uses gem5 ruby memory system for topology and routing
 
 ## Purposes
