@@ -1,8 +1,9 @@
 # NoC simulation in gem5(a simple tutorial for Garnet)
 run and modify Garnet as a stand-alone in gem5. Garnet models the interconnection network in gem5. It is cyclic accurate, implements the micro-architecture of on-chip router, and uses gem5 ruby memory system for topology and routing
 
+## Purposes
 - 熟练使用体系结构模拟器 gem5 进行建模
-- 深入理解高性能体系结构的建模，Cache一致性与NoC
+- 深入理解高性能体系结构的建模，NoC与Cache coherence
 
 ## Compile and first run
 to run Garnet as a stand-alone, compile it with the following command
@@ -67,8 +68,8 @@ Scons is a modern software construct tool (similar to Make); it's scripts are wr
 
 Take the Scons script in Garnet folder as an example. This script is located in `src/mem/ruby/network/garnet/Sconscript`. The script is strightforward: to add source file, say `x.cc`, simple add `Source('x.cpp')` in the Scons script
 
-## debug tips
-### inject one (or more fixed number of) packet(s) into the network from a specific source to a specific destination
+## Debug tips
+### Inject one (or more fixed number of) packet(s) into the network from a specific source to a specific destination
 
 This can be done by the following command-line options
 ```sh
@@ -90,7 +91,7 @@ e.g.
 --num-packets-max=3 --single-sender-id=1 --single-dest-id=7
 ```
 
-### print debug messages
+### Print debug messages
 debug messages throughout the Garnet code are in the following format:
 `DPRINTF(RubyNetwork, "Debug message is here and is printing value %d", variable)`
 
@@ -109,7 +110,7 @@ We can add our own debug messages across the code to track the progress of a fli
 --num-packets-max=1 --single-sender-id=1 --single-dest-id=2
 ```
 
-## useful scripts
+## Useful scripts
 - [build_debug.sh](./my_scripts/build_debug.sh): build Garnet_standalone (debug version)
 - [build_opt.sh](./my_scripts/build_opt.sh): build Garnet_standalone (opt version)
 - [extract_network_stats.sh](./my_scripts/extract_network_stats.sh) extract network stats
