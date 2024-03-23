@@ -1,31 +1,31 @@
 # NoC simulation in gem5(a simple tutorial for Garnet)
-run and modify Garnet as a stand-alone in gem5. Garnet models the interconnection network in gem5. It is cyclic accurate, implements the micro-architecture of on-chip router, and uses gem5 ruby memory system for topology and routing
+Run and modify Garnet as a stand-alone in gem5. Garnet models the interconnection network in gem5. It is cyclic accurate, implements the micro-architecture of on-chip router, and uses gem5 ruby memory system for topology and routing
 
 ## Purposes
 - 熟练使用体系结构模拟器 gem5 进行建模
 - 深入理解高性能体系结构的建模，NoC与Cache coherence
 
 ## Compile and first run
-to run Garnet as a stand-alone, compile it with the following command
+To run Garnet as a stand-alone, compile it with the following command
 
 ```sh
 scons build/Garnet_standalone/gem5.debug PROTOCOL=Garnet_standalone -j9
 ```
 
-run gem5 using the `garnet_synth_traffic.py` configuration file with default configuration parameters
+Run gem5 using the `garnet_synth_traffic.py` configuration file with default configuration parameters
 
 ```sh
 ./build/Garnet_standalone/gem5.debug configs/example/garnet_synth_traffic.py 
 ```
 
 ## Configuration parameters
-in general, all the configurations can be found in `config/` folder. most of the configuration parameters related to Garnet can be found in the following files and folders
+In general, all the configurations can be found in `config/` folder. most of the configuration parameters related to Garnet can be found in the following files and folders
 - `configs/common/Options.py`: general configration parameters (i.e. number CPUs, directories, memory size, ... etc.)  
 - `configs/network/Network.py`: network configuration parameters (i.e. router & link latency, routing algorithm, topology... etc.) 
 - `configs/topologies/`: topologies are defined here
 - `configs/example/garnet_synth_traffic.py`: template file, include configuration parameters related to a single run (i.e. traffic pattern type, injection rate, number of simulation cycles, ... etc.)
 
-change any default value of any configuration parameter directly in the related configuration file or change it from command line as follows: `./build/Garnet_standalone/gem5.debug configs/example/garnet_synth_traffic.py [--configuration_name=value]`, e.g.
+Change any default value of any configuration parameter directly in the related configuration file or change it from command line as follows: `./build/Garnet_standalone/gem5.debug configs/example/garnet_synth_traffic.py [--configuration_name=value]`, e.g.
 
 ```sh
 ./build/Garnet_standalone/gem5.debug configs/example/garnet_synth_traffic.py \
@@ -92,7 +92,7 @@ e.g.
 ```
 
 ### Print debug messages
-debug messages throughout the Garnet code are in the following format:
+Debug messages throughout the Garnet code are in the following format:
 `DPRINTF(RubyNetwork, "Debug message is here and is printing value %d", variable)`
 
 We can add our own debug messages across the code to track the progress of a flit. To print the debug messages, add `--debug-flags=RubyNetwork` as follows:
@@ -115,7 +115,7 @@ We can add our own debug messages across the code to track the progress of a fli
 - [build_opt.sh](./my_scripts/build_opt.sh): build Garnet_standalone (opt version)
 - [extract_network_stats.sh](./my_scripts/extract_network_stats.sh) extract network stats
 
-## advanced labs
+## Advanced labs
 Acknowledgment: the labs come from Tushar Krishna, School of ECE, Georgia Institute of Technology, Interconnection Networks for High-Performance Systems (ECE 6115 / CS 8803 - ICN), Spring 2020
 - [lab1. Running Synthetic Traffic through a Network](./ICN_lab/lab1/)
 - [lab2. Topology Comparison](./ICN_lab/lab2/)
